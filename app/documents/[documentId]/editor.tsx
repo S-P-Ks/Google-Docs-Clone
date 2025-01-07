@@ -14,6 +14,9 @@ import { useEditorStore } from "@/store/use-editor-store";
 import Underline from "@tiptap/extension-underline";
 import FontFamily from "@tiptap/extension-font-family";
 import TextStyle from "@tiptap/extension-text-style";
+import HighLight from "@tiptap/extension-highlight";
+import Link from "@tiptap/extension-link";
+import { Color } from "@tiptap/extension-color";
 
 function Editor() {
   const { setEditor } = useEditorStore();
@@ -58,6 +61,15 @@ function Editor() {
       Underline,
       FontFamily,
       TextStyle,
+      Color,
+      HighLight.configure({
+        multicolor: true,
+      }),
+      Link.configure({
+        openOnClick: false,
+        autolink: true,
+        defaultProtocol: "https",
+      }),
     ],
     editorProps: {
       attributes: {
